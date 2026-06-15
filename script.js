@@ -139,7 +139,7 @@ sial, ternyata aku menyukaimu.`,
 
     // Load the orchid image for particles
     const bungaImg = new Image();
-    bungaImg.src = 'image/bunga.png';
+    bungaImg.src = 'bunga.png';
 
     bungaImg.onload = function () {
       runExplosionAnimation(canvas, ctx, bungaImg);
