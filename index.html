@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Untuk Laksmi 💌</title>
+  <meta name="description" content="Sebuah pesan spesial untuk Laksmi." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <!-- GSAP — animation library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===================== PERSISTENT SPARKLE BACKGROUND ===================== -->
+  <canvas id="sparkle-bg"></canvas>
+  <canvas id="explosion-canvas"></canvas>
+  <div id="falling-emojis-container"></div>
+
+  <!-- ===================== BACKGROUND MUSIC ===================== -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="image/The 1975 - About You (Official).mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ===================== MUTE/UNMUTE BUTTON ===================== -->
+  <button id="mute-btn" class="mute-btn" aria-label="Toggle music" title="Toggle music">
+    <svg id="mute-icon-on" class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <svg id="mute-icon-off" class="mute-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
+
+  <!-- ===================== SECTION 1: ENVELOPE ===================== -->
+  <section id="envelope-section" class="section active">
+    <div id="ambient-particles"></div>
+    <div class="envelope-container" id="envelope-container">
+      <!-- 3D tilt wrapper -->
+      <div class="envelope-tilt-wrapper" id="envelope-tilt">
+        <div class="envelope-glow"></div>
+        <!-- Orbiting particles -->
+        <div class="orbit-ring" id="orbit-ring">
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+        </div>
+        <img
+          src="image/amplop.png"
+          alt="Surat untuk Laksmi"
+          class="envelope-img"
+          id="envelope-img"
+        />
+      </div>
+      <p class="envelope-hint" id="envelope-hint">
+        <span class="hint-shimmer">Tap untuk membuka... 💌</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== GLOBAL BACKGROUND VIDEO ===================== -->
+  <video
+    id="bg-video"
+    class="global-bg-video"
+    muted
+    autoplay
+    loop
+    playsinline
+    preload="auto"
+    src="image/video_bunga.mp4"
+  ></video>
+
+  <!-- ===================== SECTION 2: APOLOGY MESSAGE ===================== -->
+  <section id="message-section" class="section">
+    <div class="message-container">
+      <div class="message-card" id="message-card">
+        <!-- Animated gradient border -->
+        <div class="card-border-glow"></div>
+        <div class="card-inner">
+          <div class="card-header">
+            <div class="ornament-line"></div>
+            <span class="card-ornament">✿</span>
+            <div class="ornament-line"></div>
+          </div>
+          <div class="message-text" id="message-text"></div>
+          <div class="message-question" id="message-question"></div>
+
+          <div class="buttons-container" id="buttons-container">
+            <button class="btn btn-yes" id="btn-yes">
+              <span class="btn-shimmer"></span>
+              <span class="btn-content">
+                <span class="btn-icon">💕</span>
+                Iya, mau!
+              </span>
+            </button>
+            <button class="btn btn-no" id="btn-no">Nggak.</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3: POEM ===================== -->
+  <section id="poem-section" class="section">
+    <div class="poem-container">
+      <div class="poem-card" id="poem-card">
+        <div class="poem-photo-wrapper">
+          <!-- TODO: Ganti src gambar dengan foto aslinya (image/foto.jpg) -->
+          <img src="image/photo 1.png" alt="Foto Laksmi" id="laksmi-photo" onerror="this.src='https://via.placeholder.com/150x150/2d1b2e/f5c6d8?text=Foto+Laksmi'">
+        </div>
+        <div class="poem-text-container">
+          <div id="poem-text" class="poem-text"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
